@@ -3,38 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jole <jole@student.hive.fi>                +#+  +:+       +#+        */
+/*   By: jole <jole@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:42:50 by jole              #+#    #+#             */
-/*   Updated: 2023/05/11 19:40:39 by jole             ###   ########.fr       */
+/*   Updated: 2023/05/15 18:29:34y jole             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.hpp"
 
-int	main(void)
-{
+int	main() {
 	PhoneBook	phonebook;
 	std::string	input;
-	int			i = 0;
 	std::cout << "The phonebook is empty\n";
-	while (1)
-	{
-		std::cout << "Please enter ADD, SEARCH or EXIT\n";
-		std::cin >> input;
-		if (input == "ADD")
-		{
-			phonebook.create_contact(&phonebook.contacts[i++]);	
+	while (1) {
+		if (std::cin.eof() == 1) {
+			break;
 		}
-		if (input == "SEARCH")
-		{
+		std::cout << "Please enter ADD, SEARCH or EXIT\n";
+		std::getline(std::cin, input);
+		if (std::cin.eof() == 1) {
+			break;
+		}
+		if (input == "ADD") {
+			phonebook.addContact(phonebook);	
+		}
+		if (input == "SEARCH") {
 
 		}
 		if (input == "EXIT")
 			return (0);
-		if (i == 9)
-			i = 0;
 	}
 	return (0);
 }
