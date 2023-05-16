@@ -26,10 +26,12 @@ int	main() {
 			break;
 		}
 		if (input == "ADD") {
-			phonebook.addContact(phonebook);	
+			phonebook.addContact();
+			phonebook.incrementCurrent();
 		}
 		if (input == "SEARCH") {
-
+			phonebook.displayContacts();
+			phonebook.chooseContact();
 		}
 		if (input == "EXIT")
 			return (0);

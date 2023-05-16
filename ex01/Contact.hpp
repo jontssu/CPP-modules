@@ -6,7 +6,7 @@
 /*   By: jole <jole@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:17:45 by jole              #+#    #+#             */
-/*   Updated: 2023/05/15 20:10:27 by jole             ###   ########.fr       */
+/*   Updated: 2023/05/16 15:58:23 by jole             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@ class Contact {
 		std::string	phone_number;
 		std::string	darkest_secret;	
 	public:
-		void modifyContact(Contact *contact);
-		int	 setFirst(Contact *contact, std::string First);
-		int	 setLast(Contact *contact, std::string last);
-		int	 setNick(Contact *contact, std::string nick);
-		int	 setNb(Contact *contact, std::string nb);
-		int	 setSecret(Contact *contact, std::string secret);
+		int	 setFirst(std::string First);
+		int	 setLast(std::string last);
+		int	 setNick(std::string nick);
+		int	 setNb(std::string nb);
+		int	 setSecret(std::string secret);
+		std::string	getFirst();
+		std::string	getLast();
+		std::string	getNick();
+		std::string	getNb();
+		std::string	getSecret();
+		Contact();
+		~Contact();
 };
 #endif
