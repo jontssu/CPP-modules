@@ -1,5 +1,5 @@
 
-NAME = phonebook
+NAME = output
 
 SRC = tests.cpp Account.cpp
 
