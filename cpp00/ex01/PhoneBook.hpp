@@ -6,7 +6,7 @@
 /*   By: jole <jole@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:15:26 by jole              #+#    #+#             */
-/*   Updated: 2023/05/16 15:37:13 by jole             ###   ########.fr       */
+/*   Updated: 2023/05/18 12:23:03 by jole             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class PhoneBook {
 		Contact	contacts[8];
 		int		current;
 		int		amount;
+		void incrementCurrent();
 	public:
 		void addContact();
-		void incrementCurrent();
 		void displayContacts();
 		void chooseContact();
 		PhoneBook();

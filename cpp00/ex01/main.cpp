@@ -25,10 +25,8 @@ int	main() {
 		if (std::cin.eof() == 1) {
 			break;
 		}
-		if (input == "ADD") {
+		if (input == "ADD")
 			phonebook.addContact();
-			phonebook.incrementCurrent();
-		}
 		if (input == "SEARCH") {
 			phonebook.displayContacts();
 			phonebook.chooseContact();

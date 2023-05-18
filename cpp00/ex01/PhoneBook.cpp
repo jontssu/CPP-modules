@@ -6,7 +6,7 @@
 /*   By: jole <jole@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 09:31:49 by jole              #+#    #+#             */
-/*   Updated: 2023/05/16 16:03:01 by jole             ###   ########.fr       */
+/*   Updated: 2023/05/18 12:27:40 by jole             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	PhoneBook::addContact() {
 	if (contacts[current].setSecret(input) == 1) {
 		return;
 	}
+	incrementCurrent();
 }
 
 void	PhoneBook::incrementCurrent() {
@@ -48,6 +49,10 @@ void	PhoneBook::incrementCurrent() {
 void PhoneBook::displayContacts() {
 	std::string str;
 
+	if (amount < 1) {
+		std::cout << "Contact list is empty!\n";
+		return;	
+	}
 	std::cout << std::right << std::setw(10) << "Index";
 	std::cout << std::right << std::setw(10) << "First";
 	std::cout << std::right << std::setw(10) << "Last";
@@ -81,6 +86,9 @@ void PhoneBook::chooseContact() {
 	std::string input;
 	const char *str;
 	int			index;
+
+	if (amount < 1)
+		return;	
 	while (1) {
 		std::cout << "Please choose an index: ";
 		std::getline(std::cin, input);
