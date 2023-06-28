@@ -3,6 +3,10 @@
 Weapon::Weapon() {
 }
 
+Weapon::Weapon(std::string arg) {
+	type = arg;
+}
+
 Weapon::~Weapon() {
 }
 
