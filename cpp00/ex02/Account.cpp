@@ -89,16 +89,16 @@ void Account::_displayTimestamp () {
 	if ((now->tm_mon + 1) < 10)
 		std::cout << '0';
 	std::cout << (now->tm_mon + 1);
-	if ((now->tm_mday + 1) < 10)
+	if (now->tm_mday < 10)
 		std::cout << '0';
 	std::cout << now->tm_mday << "_";
-	if ((now->tm_hour + 1) < 10)
+	if (now->tm_hour < 10)
 		std::cout << '0';
 	std::cout << now->tm_hour;
-	if ((now->tm_min + 1) < 10)
+	if (now->tm_min < 10)
 		std::cout << '0';
 	std::cout << now->tm_min;
-	if ((now->tm_sec + 1) < 10)
+	if (now->tm_sec < 10)
 		std::cout << '0';
 	std::cout << now->tm_sec << "] ";
 }

@@ -6,24 +6,32 @@
 /*   By: jole <jole@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 19:10:59 by jole              #+#    #+#             */
-/*   Updated: 2023/05/11 19:11:01 by jole             ###   ########.fr       */
+/*   Updated: 2023/05/19 09:19:52 by jole             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ctype.h>
 
 int main(int argc, char **argv)
 {
 	int	i = 0;
-	if (argc == 2)
+	int	x = 1;
+	if (argc == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+	if (argc > 1)
 	{
-		while (argv[1][i] != 0)
+		while (argv[x])
 		{
-			if (argv[1][i] > 96 && argv[1][i] < 123)
-				argv[1][i] -= 32;
-			i++;
+			i = 0;
+			while (argv[x][i] != 0)
+			{
+				argv[x][i] = toupper(argv[x][i]);
+				i++;
+			}
+			std::cout << argv[x++];
 		}
-		std::cout << argv[1] << "\n";
+		std::cout << '\n';
 	}
 	return (0);
 }
