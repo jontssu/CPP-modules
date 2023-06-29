@@ -9,7 +9,7 @@ class HumanB {
 	~HumanB();
 
 	private:
-	std::string name;
+	std::string _name;
 };
 
 #endif

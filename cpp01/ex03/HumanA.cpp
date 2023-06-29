@@ -1,11 +1,9 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA() {
+HumanA::HumanA() : _name("Unnamed"){
 }
 
-HumanA::HumanA(std::string arg, Weapon type) {
-	name = arg;
-	weapon = type;
+HumanA::HumanA(std::string name, Weapon &type) : _name(name), weapon(type) {
 }
 
 HumanA::~HumanA() {
@@ -17,7 +15,7 @@ void HumanA::attack() {
 }
 
 std::string HumanA::getName() {
-	return (name);
+	return (_name);
 }
 
 void HumanA::setWeapon(Weapon newWeapon) {
