@@ -7,12 +7,17 @@ Harl::~Harl() {
 };
 
 void Harl::complain(std::string level) {
-	Harl::debug();
+	void (Harl::*p[]) () = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	level == "DEBUG" ? (this->*p[0]) () :
+	(level == "INFO" ? (this->*p[1]) () :
+	(level == "WARNING" ? (this->*p[2]) () :
+	(level == "ERROR" ? (this->*p[3]) () :
+	void())));
 }
 
 void Harl::debug() {
 	std::cout << "I love having extra bacon for my";
-	std::cout << "7XL-double-cheese-triple-pickle-special- ketchup burger.";
+	std::cout << " 7XL-double-cheese-triple-pickle-special- ketchup burger.";
 	std::cout << " I really do!" << std::endl;
 };
 

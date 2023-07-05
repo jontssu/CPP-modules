@@ -1,10 +1,14 @@
 #include "Harl.hpp"
 
-int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cerr << "Invalid amount of arguments" << std::endl;
-	}
+int main() {
 	Harl harl = Harl();
-	harl.complain(argv[1]);
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("ERROR");
+	harl.complain("ERROR");
+	harl.complain("ERROR");
+	harl.complain("ERROR");
 	return (0);
 }
