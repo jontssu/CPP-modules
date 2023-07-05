@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/07/02 13:58:57 by jole             ###   ########.fr        #
+#    Updated: 2023/07/05 11:28:09 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = sed
 
-SRC = main.cpp replace.cpp
+SRC = main.cpp
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 

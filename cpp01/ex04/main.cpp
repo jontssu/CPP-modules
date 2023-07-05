@@ -2,7 +2,10 @@
 #include <string>
 #include <fstream>
 
-std::string replace(std::string line, std::string str1, std::string str2);
+std::string replace(std::string line, std::string str1, std::string str2) {
+	
+	return (line);
+}
 
 int main(int argc, char **argv) {
 	(void)argc;
