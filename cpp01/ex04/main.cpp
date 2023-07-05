@@ -8,9 +8,18 @@ std::string replace(std::string line, std::string str1, std::string str2) {
 }
 
 int main(int argc, char **argv) {
-	(void)argc;
+	if (argc != 4) {
+		std::cerr << "Invalid amount of arguments\n" << std::endl;
+		return (1);
+	}
 	std::ifstream inputFile(argv[1]);
+	if (!inputFile) {
+		std::cerr << "Couldn't open file 1\n" << std::endl;
+	}
 	std::ofstream outputFile((std::string(argv[1]) + ".replace").c_str());
+	if (!outputFile) {
+		std::cerr << "Couldn't open file 2\n" << std::endl;
+	}
 
 	if (inputFile && outputFile) {
 		while (!inputFile.eof()) {
