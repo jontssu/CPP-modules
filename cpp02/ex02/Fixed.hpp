@@ -27,9 +27,9 @@ class Fixed {
 	Fixed& operator=(const Fixed &ref);
 	~Fixed();
 
-	Fixed operator+(const Fixed &ref);
-	Fixed operator-(const Fixed &ref);
-	Fixed operator*(const Fixed &ref);
+	Fixed operator+(const Fixed &ref) const;
+	Fixed operator-(const Fixed &ref) const;
+	Fixed operator*(const Fixed &ref) const;
 	Fixed operator/(const Fixed &ref) const;
 	Fixed& operator++();
 	Fixed operator++(int);

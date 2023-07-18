@@ -62,19 +62,19 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 	return (a._fixedValue > b._fixedValue ? a : b);
 }
 
-Fixed Fixed::operator+(const Fixed &ref) {
+Fixed Fixed::operator+(const Fixed &ref) const {
 	Fixed tmp(*this);
 	tmp._fixedValue = std::roundf((this->toFloat() + ref.toFloat()) * (1 << _fractionalBits));
 	return (tmp);
 }
 
-Fixed Fixed::operator-(const Fixed &ref) {
+Fixed Fixed::operator-(const Fixed &ref) const {
 	Fixed tmp(*this);
 	tmp._fixedValue = std::roundf((this->toFloat() - ref.toFloat()) * (1 << _fractionalBits));
 	return (tmp);
 }
 
-Fixed Fixed::operator*(const Fixed &ref) {
+Fixed Fixed::operator*(const Fixed &ref) const {
 	Fixed tmp(*this);
 	tmp._fixedValue = std::roundf((this->toFloat() * ref.toFloat()) * (1 << _fractionalBits));
 	return (tmp);
