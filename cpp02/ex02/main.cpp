@@ -39,7 +39,9 @@ std::cout << "A != C                 : " << (a != c) << std::endl;
 
 std::cout << "\nTESTING MIN/MAX" << std::endl;
 std::cout << "MIN                    : " << a.min(a, b) << std::endl;
+std::cout << "MIN                    : " << a.min(a, c) << std::endl;
 std::cout << "MAX                    : " << a.max(a, b) << std::endl;
+std::cout << "MAX                    : " << a.max(a, c) << std::endl;
 
 
 // std::cout << b << std::endl;
