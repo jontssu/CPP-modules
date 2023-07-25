@@ -15,16 +15,16 @@ void replace(std::string &line, const std::string &str1, const std::string &str2
 
 int main(int argc, char **argv) {
 	if (argc != 4) {
-		std::cerr << "Invalid amount of arguments\n" << std::endl;
+		std::cerr << "Invalid amount of arguments" << std::endl;
 		return (1);
 	}
 	std::ifstream inputFile(argv[1]);
 	if (!inputFile) {
-		std::cerr << "Couldn't open file 1\n" << std::endl;
+		std::cerr << "Couldn't open file 1" << std::endl;
 	}
 	std::ofstream outputFile((std::string(argv[1]) + ".replace").c_str());
 	if (!outputFile) {
-		std::cerr << "Couldn't open file 2\n" << std::endl;
+		std::cerr << "Couldn't open file 2" << std::endl;
 	}
 	if (inputFile && outputFile) {
 		std::string line;
