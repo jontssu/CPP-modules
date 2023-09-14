@@ -29,6 +29,25 @@ ScavTrap::ScavTrap(std::string name) {
 	std::cout << "ScavTrap Name Constructor has been called" << std::endl;
 }
 
+ScavTrap::ScavTrap(ScavTrap const &ref) {
+	std::cout << "ScavTrap Copy Constructor has been called" << std::endl;
+	this->_name = ref._name;
+	this->_hitPoints = ref._hitPoints;
+	this->_energyPoints = ref._energyPoints;
+	this->_attackDamage = ref._attackDamage;
+}
+
+ScavTrap& ScavTrap::operator=(ScavTrap const &ref) {
+	std::cout << "ScavTrap Copy Assignment Operator has been called" << std::endl;
+	if (this != &ref) {
+		this->_name = ref._name;
+		this->_hitPoints = ref._hitPoints;
+		this->_energyPoints = ref._energyPoints;
+		this->_attackDamage = ref._attackDamage;
+	}
+	return (*this);
+}
+
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor has been called" << std::endl;
 }

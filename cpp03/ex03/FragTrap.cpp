@@ -20,6 +20,25 @@ FragTrap::FragTrap (std::string name) {
 	this->_attackDamage = 30;
 }
 
+FragTrap::FragTrap(FragTrap const &ref) {
+	std::cout << "FragTrap Copy Constructor has been called" << std::endl;
+	this->_name = ref._name;
+	this->_hitPoints = ref._hitPoints;
+	this->_energyPoints = ref._energyPoints;
+	this->_attackDamage = ref._attackDamage;
+}
+
+FragTrap& FragTrap::operator=(FragTrap const &ref) {
+	std::cout << "FragTrap Copy Assignment Operator has been called" << std::endl;
+	if (this != &ref) {
+		this->_name = ref._name;
+		this->_hitPoints = ref._hitPoints;
+		this->_energyPoints = ref._energyPoints;
+		this->_attackDamage = ref._attackDamage;
+	}
+	return (*this);
+}
+
 FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor has been called" << std::endl;
 }

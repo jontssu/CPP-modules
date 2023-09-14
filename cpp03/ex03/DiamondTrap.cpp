@@ -16,6 +16,22 @@ DiamondTrap::DiamondTrap(std::string name) : _name(name) {
 	ScavTrap::_energyPoints = 50; 
 }
 
+DiamondTrap::DiamondTrap(DiamondTrap const &ref) {
+	std::cout << "DiamondTrap Copy Constructor has been called" << std::endl;
+	_name = ref._name;
+	ScavTrap::_name = ref.ScavTrap::_name;
+	ScavTrap::_hitPoints = ref.ScavTrap::_hitPoints; 
+	ScavTrap::_energyPoints = ref.ScavTrap::_energyPoints;
+	ScavTrap::_attackDamage = ref.ScavTrap::_attackDamage;
+}
+
+DiamondTrap& DiamondTrap::operator=(DiamondTrap const &ref) {
+	std::cout << "DiamondTrap Copy Assignment Operator has been called" << std::endl;
+	if (this != &ref) {
+	}
+	return (*this);
+}
+
 DiamondTrap::~DiamondTrap() {
 	std::cout << "DiamondTrap destructor has been called" << std::endl;
 }
