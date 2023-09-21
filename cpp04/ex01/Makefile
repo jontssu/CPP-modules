@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/09/19 14:10:50 by jole             ###   ########.fr        #
+#    Updated: 2023/09/21 15:23:07 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = brain
 
-SRC = main.cpp Brain.cpp 
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp 
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 

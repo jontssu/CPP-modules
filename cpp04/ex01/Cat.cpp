@@ -8,7 +8,7 @@ void Cat::makeSound() const {
 Cat::Cat() {
 	std::cout << "Cat Default Constructor has been called" << std::endl;
 	type = "Cat";
-	new Brain();
+	_brain = new Brain();
 }
 
 Cat::Cat(Cat const &ref) {
@@ -26,4 +26,5 @@ Cat& Cat::operator=(Cat const &ref) {
 
 Cat::~Cat() {
 	std::cout << "Cat Destructor has been called" << std::endl;
+	delete _brain;
 }

@@ -8,6 +8,7 @@ void Dog::makeSound() const {
 Dog::Dog() {
 	std::cout << "Dog Default Constructor has been called" << std::endl;
 	type = "Dog";
+	_brain = new Brain();
 }
 
 Dog::Dog(Dog const &ref) {
@@ -25,4 +26,5 @@ Dog& Dog::operator=(Dog const &ref) {
 
 Dog::~Dog() {
 	std::cout << "Dog Destructor has been called" << std::endl;
+	delete _brain;
 }

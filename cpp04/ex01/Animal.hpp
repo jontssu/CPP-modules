@@ -16,7 +16,7 @@ class Animal {
 	Animal();
 	Animal(Animal const &ref);
 	Animal& operator=(Animal const &ref);
-	~Animal();
+	virtual ~Animal();
 };
 
 #endif
