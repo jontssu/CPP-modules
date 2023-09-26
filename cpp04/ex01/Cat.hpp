@@ -9,6 +9,7 @@ class Cat : virtual public Animal {
 	Brain* _brain;
 
 	public:
+	Brain* getBrain();
 	void makeSound() const;
 
 	Cat();
