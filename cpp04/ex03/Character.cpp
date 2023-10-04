@@ -2,6 +2,7 @@
 #include <string>
 
 std::string const & Character::getName() const {
+	return (_name);
 }
 
 void Character::equip(AMateria* m) {
@@ -39,13 +40,25 @@ Character::Character(std::string name) : _name(name) {
 }
 
 Character::Character(Character const &ref) {
-	if (this != &ref) {
-		_name 
+	_name = ref._name;
+	for (int i = 0; i < 4; i++) {
+		if (ref._inventory[i])
+			_inventory[i] = ref._inventory[i]->clone();
 	}
 }
 
 Character& Character::operator=(Character const &ref) {
-
+	if (this != &ref) {
+		_name = ref._name;
+		for (int i = 0; i < 4; i++) {
+			if (_inventory[i])
+				delete _inventory[i];
+			if (ref._inventory[i]) {
+				_inventory[i] = ref._inventory[i]->clone();
+			}
+		}
+	}
+	return (*this);
 }
 
 Character::~Character() {}

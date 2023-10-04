@@ -6,9 +6,8 @@
 class ICharacter;
 
 class AMateria {
-	private:
-
 	protected:
+		std::string _type;
 
 	public:
 		AMateria(std::string const & type);
@@ -21,7 +20,7 @@ class AMateria {
 		AMateria();
 		AMateria(AMateria const &ref);
 		AMateria& operator=(AMateria const &ref);
-		~AMateria();
+		virtual ~AMateria();
 };
 
 #endif
