@@ -1,7 +1,9 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#include <iostream>
+#include <string>
+
+class ICharacter;
 
 class AMateria {
 	private:
@@ -15,6 +17,11 @@ class AMateria {
 
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
+
+		AMateria();
+		AMateria(AMateria const &ref);
+		AMateria& operator=(AMateria const &ref);
+		~AMateria();
 };
 
 #endif
