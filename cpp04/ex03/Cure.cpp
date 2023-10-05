@@ -10,7 +10,9 @@ void Cure::use(ICharacter& ref) {
 	std::cout << "* heals " << ref.getName() << "'s wounds *" << std::endl;
 }
 
-Cure::Cure() {}
+Cure::Cure() {
+	_type = "cure";
+}
 
 Cure::Cure(Cure const &ref) {
 	_type = ref._type;

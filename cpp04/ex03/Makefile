@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/04 14:24:05 by jole             ###   ########.fr        #
+#    Updated: 2023/10/05 18:34:12 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = AMateria
 
-SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp 
+SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 

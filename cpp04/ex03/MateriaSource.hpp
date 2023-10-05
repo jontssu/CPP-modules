@@ -9,8 +9,9 @@ class MateriaSource : public IMateriaSource {
 		AMateria* _memory[4];
 
 	public:
-		void learnMateria(AMateria*);
+		void	  learnMateria(AMateria*);
 		AMateria* createMateria(std:: string const & type);
+		AMateria* getMateriaIdx(int idx);
 
 		MateriaSource();
 		MateriaSource(MateriaSource const &ref);
