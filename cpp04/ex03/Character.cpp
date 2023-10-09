@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+TrashCan Character::_trashcan;
+
 std::string const & Character::getName() const {
 	return (_name);
 }
@@ -21,6 +23,7 @@ void Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
 	if (idx >= 0 && idx <= 3 && _inventory[idx]) {
 		std::cout << "Unequipping" << std::endl;
+		_trashcan.push(_inventory[idx]);
 		_inventory[idx] = NULL;
 	}
 }
@@ -69,4 +72,9 @@ Character& Character::operator=(Character const &ref) {
 	return (*this);
 }
 
-Character::~Character() {}
+Character::~Character() {
+	for (int i = 0; i < 4; i++) {
+		if (_inventory[i])
+			delete _inventory[i];
+	}
+}

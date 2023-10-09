@@ -3,9 +3,11 @@
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "TrashCan.hpp"
 
 class Character : public ICharacter {
 	private:
+		static TrashCan _trashcan;
 		std::string _name;
 		AMateria* 	_inventory[4];
 

@@ -51,4 +51,9 @@ MateriaSource& MateriaSource::operator=(MateriaSource const &ref) {
 	return (*this);
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		if (_memory[i])
+			delete _memory[i];
+	}
+}
