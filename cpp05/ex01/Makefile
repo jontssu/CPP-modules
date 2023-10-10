@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/10 17:10:31 by jole             ###   ########.fr        #
+#    Updated: 2023/10/10 17:48:30 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = letsmakesomeforms
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 
