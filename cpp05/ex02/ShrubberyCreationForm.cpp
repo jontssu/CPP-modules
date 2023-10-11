@@ -4,7 +4,24 @@
 
 void ShrubberyCreationForm::finalExecution() const {
 	std::ofstream outputFile((_target + "_shrubbery").c_str());
-	outputFile << "TREE";
+	for (int x = 0; x < 5; x++) {
+		for (int i = 1; i <= 10; ++i) {
+			for (int j = 0; j < 10 - i; ++j) {
+				outputFile << " ";
+			}
+
+			for (int j = 0; j < 2 * i - 1; ++j) {
+				outputFile << "*";
+			}
+
+			outputFile << std::endl;
+		}
+
+		for (int i = 0; i < 10 - 1; ++i) {
+			outputFile << " ";
+		}
+		outputFile << "|" << std::endl;
+	}
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
