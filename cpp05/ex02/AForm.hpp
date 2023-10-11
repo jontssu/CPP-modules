@@ -22,7 +22,7 @@ class AForm {
 		class GradeTooLowException : public std::exception {
 			const char* what() const throw();	
 		};
-		virtual void finalExecution() const;
+		virtual void finalExecution() const = 0;
 
 		AForm();
 		AForm& operator=(AForm const &ref);

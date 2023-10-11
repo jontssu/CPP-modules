@@ -2,19 +2,18 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include <string>
+#include "AForm.hpp"
 
-class ShrubberyCreationForm {
+class ShrubberyCreationForm : public AForm {
 	private:
 		std::string _target;
-		int			_signGrade;
-		int			_execGrade;
 
 		void finalExecution() const;
 		ShrubberyCreationForm();
+		ShrubberyCreationForm& operator=(ShrubberyCreationForm const &ref);
 	public:
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &ref);
-		ShrubberyCreationForm& operator=(ShrubberyCreationForm const &ref);
 		~ShrubberyCreationForm();
 };
 

@@ -13,7 +13,7 @@ const char* AForm::GradeTooLowException::what() const throw() {
 void	AForm::execute(Bureaucrat const & executor) const {
 	if (_isSigned == false || executor.getGrade() > _executeGrade)
 		throw(GradeTooLowException());
-	
+	finalExecution();
 }
 
 void AForm::beSigned(Bureaucrat& ref) {

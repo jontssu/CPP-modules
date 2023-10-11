@@ -28,7 +28,7 @@ class Bureaucrat {
 		Bureaucrat& operator=(Bureaucrat const &ref);
 
 	public:
-		void	Bureaucrat::executeForm(AForm const & form) const;
+		void		executeForm(AForm const & form) const;
 		std::string getName() const;
 		int			getGrade() const;
 		void		incrementGrade();

@@ -16,7 +16,7 @@ void	Bureaucrat::executeForm(AForm const & form) const {
 		std::cout << _name << " executed " << form.getName() << '\n';
 	}
 	catch (std::exception &e) {
-		std::cout << "Lol failed\n";
+		std::cout << "Lol failed executing\n";
 	}
 }
 

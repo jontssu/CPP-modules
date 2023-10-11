@@ -2,18 +2,17 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 #include <string>
+#include "AForm.hpp"
 
-class RobotomyRequestForm {
+class RobotomyRequestForm : public AForm {
 	private:
 		std::string _target;
-		int			_signGrade;
-		int			_execGrade;
 
 		void finalExecution() const;
 		RobotomyRequestForm();
+		RobotomyRequestForm& operator=(RobotomyRequestForm const &ref);
 	public:
 		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm& operator=(RobotomyRequestForm const &ref);
 		RobotomyRequestForm(RobotomyRequestForm const &ref);
 		~RobotomyRequestForm();
 };

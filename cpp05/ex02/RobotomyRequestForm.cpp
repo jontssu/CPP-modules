@@ -1,18 +1,21 @@
 #include "RobotomyRequestForm.hpp"
+#include <iostream>
+
+void RobotomyRequestForm::finalExecution() const {
+	std::cout << "*Some drilling noises*\n";
+	srand(time(NULL));
+	if (rand() % 2 == 0)
+		std::cout << _target << " has been robotomized\n";
+	else
+		std::cout << _target << " has been unsuccessfully robotomized\n";
+}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-: _target(target), _signGrade(72), _execGrade(45) {
+: AForm("RobotomyRequestForm", 72, 45), _target(target) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &ref)
-: _target(ref._target), _signGrade(72), _execGrade(45) {
-}
-
-RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &ref) {
-	if (this != &ref) {
-		_target = ref._target;
-	}
-	return (*this);
+: AForm("RobotomyRequestForm", 72, 45), _target(ref._target) {
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
