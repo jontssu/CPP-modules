@@ -8,5 +8,25 @@
 
 
 int main() {
+	Intern i;
+	AForm* f;
+
+	f = i.makeForm("ShrubberyCreationForm", "You");
+	std::cout << *f << '\n';
+
+	delete f;
+
+	f = i.makeForm("RobotomyRequestForm", "Me");
+	std::cout << *f << '\n';
+
+	delete f;
+
+	f = i.makeForm("PresidentialPardonForm", "Your mom");
+	std::cout << *f << '\n';
+
+	delete f;
+
+	f = i.makeForm("Nonsense", "No one");
+
 	return (0);
 }

@@ -31,15 +31,9 @@ AForm* Intern::makeForm(std::string name, std::string target) {
 		}
 	}
 	std::cout << "Intern didn't find a matching name\n";
+	return (NULL);
 }
-
 
 Intern::Intern() {}
-
-Intern::Intern(Intern const &ref)  {
-}
-
-Intern& Intern::operator=(Intern const &ref) {
-}
 
 Intern::~Intern() {}

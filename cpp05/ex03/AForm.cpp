@@ -49,6 +49,11 @@ AForm::AForm(AForm const &ref)
 AForm::~AForm() {}
 
 std::ostream&	operator<<(std::ostream& os, const AForm& ref) {
-	os << ref.getName() << " AForm is signed: " << ref.getIsSigned() << " , Sign Grade: " << ref.getSignGrade() << " , Execute Grade: " << ref.getExecuteGrade() << std::endl;
+	os << ref.getName() << " is signed: ";
+	if (ref.getIsSigned())
+		os << "Yes";
+	else
+		os << "No";
+	os << ", Sign Grade: " << ref.getSignGrade() << ", Execute Grade: " << ref.getExecuteGrade() << std::endl;
 	return (os);
 }
