@@ -119,7 +119,7 @@ void ScalarConverter::convert(std::string str){
 		}
 		case FLOAT: {
 			float f = 0;
-			ss << str;
+			ss << str.erase(str.size() - 1, 1);
 			if (!(ss >> f))
 				std::cout << "It is NONVALID\n";
 			else {
