@@ -6,11 +6,11 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/12 15:02:03 by jole             ###   ########.fr        #
+#    Updated: 2023/10/17 15:14:23 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar
+NAME = convert
 
 SRC = main.cpp ScalarConverter.cpp
 
