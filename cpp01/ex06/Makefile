@@ -6,11 +6,11 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/18 16:14:11 by jole             ###   ########.fr        #
+#    Updated: 2023/07/05 13:45:53 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = harl2.0
 
 SRC = main.cpp Harl.cpp
 

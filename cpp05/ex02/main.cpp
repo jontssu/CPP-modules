@@ -23,7 +23,7 @@ int main() {
 	Bureaucrat y("y", 75);
 	Bureaucrat z("x", 150);
 
-	std::cout << "\n\n\nCreated all Forms and Bureaucrats\n\n";
+	std::cout << "\nCreated all Forms and Bureaucrats\n\n";
 	std::cout << "\nNow X executing A Forms\n\n";
 
 	x.executeForm(a1);

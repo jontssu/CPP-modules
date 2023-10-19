@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/18 16:14:11 by jole             ###   ########.fr        #
+#    Updated: 2023/10/19 16:50:24 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = base 
 
-SRC = main.cpp Harl.cpp
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 
@@ -20,7 +20,7 @@ DEP = $(OBJ:%.o=%.d)
 
 OBJ_DIR = ./obj
 
-WWW = -Wall -Wextra -Werror -std=c++98
+# WWW = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 

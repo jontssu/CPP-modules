@@ -10,21 +10,21 @@ int main() {
 	a.decrementGrade();
 	}
 	catch (std::exception& e) {
-		std::cout << "LOL FAILED " << e.what() << std::endl;
+		std::cout << "LOL FAILED 1 " << e.what() << std::endl;
 	}
 	try {
 	Bureaucrat b("b", 220);
 	std::cout << b;
 	}
 	catch (std::exception& e) {
-		std::cout << "LOL FAILED " << e.what() << std::endl;
+		std::cout << "LOL FAILED 2 " << e.what() << std::endl;
 	}
 	try {
 	Bureaucrat c("c", -1);
 	std::cout << c;
 	}
 	catch (std::exception& e) {
-		std::cout <<  "LOL FAILED " << e.what() << std::endl;
+		std::cout <<  "LOL FAILED 3 " << e.what() << std::endl;
 	}
 	try {
 	Bureaucrat d("d", 1);
@@ -34,7 +34,7 @@ int main() {
 	d.incrementGrade();
 	}
 	catch (std::exception& e) {
-		std::cout << "LOL FAILED " << e.what() << std::endl;
+		std::cout << "LOL FAILED 4 " << e.what() << std::endl;
 	}
 	return (0);
 }
