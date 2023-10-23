@@ -25,7 +25,13 @@ int main()
 	std::cout << "\n\n";
 
 	int y[] = {55, 66, 77, 88};
-	iter(y, 4, f3);
+	iter(y, 4, f3<int>);
 	std::cout << y[0] << '\n' << y[1]  << '\n' << y[2] << '\n' << y[3] << '\n';
+
+	std::cout << "\n\n";
+
+	iter(y, 4, f4<const int>);
+
+	std::cout << "\n\n";
 	return 0;
 }
