@@ -2,6 +2,7 @@
 # define ARRAY_HPP
 
 #include <exception>
+#include <iostream>
 
 template<class T>
 class Array {
@@ -10,18 +11,23 @@ class Array {
 			return (_size);
 		}
 		
-		int& operator[](int i) {
-			if (i > _size) {
+		int& operator[](unsigned int i) {
+			if (i >= _size) {
 				throw(IndexOutOfBounds());
 			}
 			return (_elements[i]);
+		}
+
+		void increment(int i) {
+			_elements[i] = i + 1;
 		}
 
 		Array() : _elements(NULL), _size(0) {
 		}
 
 		Array(unsigned int n) : _size(n) {
-			_elements = new T[n]();
+			if (n)
+				_elements = new T[n]();
 		}
 
 		Array(Array const &ref) {
