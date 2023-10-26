@@ -1,17 +1,17 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+#include <iostream>
+#include <algorithm>
+
 template<typename T>
-void easyfind(T type, int n) {
-	try {
-		for(int i = 0; type[i]; i++) {
-			if (type[i] == n)
-				throw();
-		}
-		std::cout << "SUCCESS\n";
-	} catch (...) {
-		std::cout << "FAILURE\n";
-	}	
+typename T::iterator easyfind(T& arr, int n) {
+	return (std::find(arr.begin(), arr.end(), n));
+}
+
+template<typename T>
+typename T::const_iterator easyfind(T const& arr, int n) {
+	return (std::find(arr.begin(), arr.end(), n));
 }
 
 #endif
