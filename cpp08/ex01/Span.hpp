@@ -15,7 +15,8 @@ class Span {
 		Span(Span const &ref);
 		~Span();
 	private:
-		std::vector<unsigned int> _ints;
+		std::vector<unsigned int>	_ints;
+		int							_maxSize;
 
 		Span();
 };
