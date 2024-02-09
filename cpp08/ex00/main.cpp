@@ -19,7 +19,7 @@ int main() {
 
 	std::cout << "\n";
 
-	std::vector<int>::const_iterator tmp2 = easyfind(v2, 400);
+	std::vector<int>::const_iterator tmp2 = easyfind(v2, 444);
 	// for (std::vector<int>::const_iterator it = v2.begin(); it != v2.end(); it++) {
 	// 	std::cout << *it << '\n';
 	// }

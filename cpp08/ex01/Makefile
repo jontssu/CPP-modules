@@ -6,7 +6,7 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2023/10/27 15:50:04 by jole             ###   ########.fr        #
+#    Updated: 2024/02/09 15:09:17 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEP = $(OBJ:%.o=%.d)
 
 OBJ_DIR = ./obj
 
-# WWW = -Wall -Wextra -Werror -std=c++98
+# WWW = -Wall -Wextra -Werror -std=c++17
 
 .PHONY: all clean fclean re
 

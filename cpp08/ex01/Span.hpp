@@ -1,13 +1,13 @@
-#ifndef SPSpanN_HPP
-# define SPSpanN_HPP
+#ifndef Span_HPP
+# define Span_HPP
 
 #include <vector>
 
 class Span {
 	public:
 		void addNumber(int n);
-		void shortestSpan();
-		void longestSpan();
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
 		unsigned int getIntIndex(int index);
 	
 		Span(unsigned int N);
@@ -15,8 +15,9 @@ class Span {
 		Span(Span const &ref);
 		~Span();
 	private:
-		std::vector<unsigned int>	_ints;
-		int							_maxSize;
+		std::vector<int> _ints;
+		unsigned int _maxSize;
+		bool _sorted;
 
 		Span();
 };
