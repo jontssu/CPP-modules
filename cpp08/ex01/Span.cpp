@@ -32,7 +32,7 @@ void Span::addNumber(int n) {
 
 unsigned int Span::shortestSpan() {
 	if (_ints.size() < 2)
-		throw(std::logic_error("Need more elements to determine span"));
+		throw(std::logic_error("Need more elements to determine shortest span"));
 	if (_sorted == false)
 	{
 		std::sort(_ints.begin(), _ints.end());
@@ -51,7 +51,7 @@ unsigned int Span::shortestSpan() {
 
 unsigned int Span::longestSpan() {
 	if (_ints.size() < 2)
-		throw(std::logic_error("Need more elements to determine span"));
+		throw(std::logic_error("Need more elements to longest determine span"));
 	if (_sorted == false)
 	{
 		std::sort(_ints.begin(), _ints.end());
@@ -60,8 +60,10 @@ unsigned int Span::longestSpan() {
 	return _ints.back() - _ints.front();
 }
 
-unsigned int Span::getIntIndex(int index) {
-	if (index > _ints.size() - 1)
+#include <iostream>
+
+unsigned int Span::getIntIndex(unsigned int index) {
+	if (index >= _ints.size())
 		throw(std::out_of_range("Out of range"));
 	return (_ints[index]);
 }
