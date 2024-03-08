@@ -7,19 +7,25 @@ BitcoinExchange::BitcoinExchange(std::string const &data, std::string const &inp
 	std::vector<std::string> inputText;
 	std::string line;;
 	std::regex regex_basic("[0-9]{4}-[0-9]{2}-[0-9]{2} \\| [0-9]+.?[0-9]*");
-	std::regex regex_negative("(?<=-)[0-9]+.?[0-9]*$");
+	std::regex regex_negative("[0-9]{4}-[0-9]{2}-[0-9]{2} \\| -[0-9]+.?[0-9]*");
 
 	inputFile.open(input);
 	getline(inputFile, line);
 	if (line != "date | value")
 		return;
 	while (std::getline(inputFile, line)) {
-		if (regex_match(line, regex_basic))
-			inputText.emplace_back(line);
+		if (regex_match(line, regex_basic)) {
+			size_t pos = line.find("|");	
+			std::string tmp = line.substr(pos + 1);
+			if (std::stof(tmp) > 1000)
+				inputText.emplace_back("Error: too large a number.");
+			else
+				inputText.emplace_back(line);
+		}
 		else if (regex_match(line, regex_negative))
 			inputText.emplace_back("Error: not a positive number.");
-		// else
-		// 	inputText.emplace_back("Error: bad input => " + line);
+		else
+			inputText.emplace_back("Error: bad input => " + line);
 	}
 
 	(void)data;
