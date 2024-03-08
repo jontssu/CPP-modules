@@ -6,13 +6,13 @@
 #    By: jole <jole@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 15:06:54 by jole              #+#    #+#              #
-#    Updated: 2024/02/12 14:37:34 by jole             ###   ########.fr        #
+#    Updated: 2024/03/08 17:15:26 by jole             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = mutated
+NAME = btc
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJ = $(addprefix obj/,$(SRC:%.cpp=%.o))
 
