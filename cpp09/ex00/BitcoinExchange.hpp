@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 #include <regex>
+#include <algorithm>
+#include <sstream>
 
 class BitcoinExchange {
 

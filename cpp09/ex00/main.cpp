@@ -1,9 +1,10 @@
 #include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
-	(void)argc;
-
+	if (argc < 2) {
+		std::cout << "Error: could not open file.\n";
+		return 0;
+	}
 	BitcoinExchange btc = BitcoinExchange("data.csv", argv[1]);
-	// Error: could not open file.
-	return (0);
+	return 0;
 }
