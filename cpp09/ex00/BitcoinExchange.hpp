@@ -8,6 +8,7 @@
 #include <regex>
 #include <algorithm>
 #include <sstream>
+#include <map>
 
 class BitcoinExchange {
 
