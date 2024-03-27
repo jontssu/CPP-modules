@@ -8,8 +8,8 @@ int main(int argc, char **argv) {
 	try {
 		Rpn rpn = Rpn(argv[1]);
 		(void)rpn;
-	} catch (const std::exception &e) {
-		std::cout << "Error: " << e.what() << '\n';
+	} catch (const char *e) {
+		std::cout << "Error: " << e << '\n';
 	}
 	return 0;
 }
