@@ -15,13 +15,12 @@ PmergeME::PmergeME(char **argv) {
 }
 
 void PmergeME::executeVector(int stride) {
-	std::list<int> main;
-	std::list<int> pend;
 	int i = 0;
 	int distance = 0;
 	int tmp;
+
 	while ((int)vec.size() - distance >= stride * 2) {
-	std::cout << "pair: " << vec[i] << " & " << vec[i + stride] << '\n'; 
+	// std::cout << "pair: " << vec[i] << " & " << vec[i + stride] << '\n'; 
 		if (vec[i] < vec[i + stride]) {
 			tmp = vec[i];
 			vec[i] = vec[i + stride];
@@ -30,13 +29,37 @@ void PmergeME::executeVector(int stride) {
 		distance += stride * 2;
 		i += stride * 2;
 	}
-	std::cout << '\n';
-	for (auto x : vec) {
-		std::cout << x << ' ';
-	}
-	std::cout << '\n';
-	std::cout << '\n';
+
+	// std::cout << '\n';
+	// for (auto x : vec) {
+	// 	std::cout << x << ' ';
+	// }
+	// std::cout << '\n';
+	// std::cout << '\n';
+
 	if ((int)vec.size() >= stride * 4) {
 		executeVector(stride * 2);
 	}
+
+	std::list<int> main;
+	std::list<int> pend;
+
+	i = 0;
+	auto it = vec.begin();
+	for (int distance = 0; (int)vec.size() - distance >= stride * 2;) {
+		main.push_back(*it);
+		pend.push_back(*(it + stride));
+		it += stride * 2;
+		distance += stride * 2;
+	}
+
+	std::cout << "\nmain\n";
+	for (auto x : main) {
+		std::cout << x << ' ';
+	}
+	std::cout << "\npend\n";
+	for (auto x : pend) {
+		std::cout << x << ' ';
+	}
+	std::cout << "\n\n";
 }
