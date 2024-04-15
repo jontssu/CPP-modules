@@ -7,6 +7,7 @@
 #include <deque>
 #include <sstream>
 #include <list>
+#include <algorithm>
 
 class PmergeME {
 	public:
