@@ -14,6 +14,15 @@ PmergeME::PmergeME(char **argv) {
 	}
 }
 
+template<typename T>
+T get_it(T main_it, unsigned int size) {
+	while (size) {
+		main_it++;
+		size--;
+	}
+	return (main_it);
+}
+
 void PmergeME::executeVector(int stride) {
 	int i = 0;
 	int distance = 0;
@@ -44,8 +53,8 @@ void PmergeME::executeVector(int stride) {
 		executeVector(stride * 2);
 	}
 
-	std::list<std::vector<int>::iterator> main;
-	std::list<std::vector<int>::iterator> pend;
+	list_it main;
+	list_it pend;
 
 	auto it = vec.begin();;
 	for (; it + stride < vec.end(); it+= stride * 2) {
@@ -56,22 +65,28 @@ void PmergeME::executeVector(int stride) {
 		pend.push_back(it);
 	}
 
-	std::cout << "\nmain\n";
+	std::cout << "\nmain before anything: ";
 	for (auto x : main) {
 		std::cout << *x << ' ';
 	}
-	std::cout << "\npend\n";
+	std::cout << "\npend before anything: ";
 	for (auto x : pend) {
 		std::cout << *x << ' ';
 	}
-	std::cout << "\n\n";
 
 	main.push_front(pend.front());
+	pend.pop_front();
 
-	std::cout << "\nmain\n";
+	std::cout << "\nmain: ";
 	for (auto x : main) {
 		std::cout << *x << ' ';
 	}
+	std::cout << "\npend: ";
+	for (auto x : pend) {
+		std::cout << *x << ' ';
+	}
+
+	std::cout << '\n';
 
 	static const std::uint_fast64_t jacobsthal_diff[] = {
 		2u, 2u, 6u, 10u, 22u, 42u, 86u, 170u, 342u, 682u, 1366u,
@@ -87,9 +102,51 @@ void PmergeME::executeVector(int stride) {
 		1537228672809129302u, 3074457345618258602u, 6148914691236517206u
 	};
 	
-	int jacob = 0;
-	for (int i = 0; vec.size() < jacob;) {
-		jacob = jacobsthal_diff[i];
+	list_it_it main_it;
+
+	for (auto it = main.begin(); it != main.end(); it ++) {
+		main_it.push_back(it);
 	}
-	// std::lower_bound();
+	main_it.pop_front();
+	main_it.pop_front();
+
+	int set = 0;
+	int size = pend.size();
+	int total_dist = 0;
+
+	for (int i = 0; size > 0; i++) {
+		set = jacobsthal_diff[i];
+		if (set > size)
+			set = size;
+		while (set) {
+			list_it::iterator lowest = std::lower_bound(main.begin(),
+			*(get_it(main_it.begin(), set + total_dist - 1)),
+			*(get_it(pend.begin(), set + total_dist - 1)),
+			[] (vec_int::iterator a, vec_int::iterator b) {return *a > *b;});
+			//std::cout << "lowest: " << **lowest << '\n';
+			// std::cout << std::distance(main.begin(), lowest) << '\n';
+			main.insert(lowest, *(get_it(pend.begin(), set + total_dist - 1)));
+			set--;
+		}
+		size -= jacobsthal_diff[i];
+		total_dist += jacobsthal_diff[i];
+	}
+	std::cout << "\nmain after: ";
+	for (auto x : main) {
+		std::cout << *x << ' ';
+	}
+	std::cout << "\n";
+
+	std::vector<int> updated_vec;
+	for (auto x : main) {
+		i = 0;
+		size = stride;
+		while (size) {
+			updated_vec.push_back(*(x + i));
+			main.pop_back();
+			size--;
+			i++;
+		}	
+	}
+	vec = updated_vec;
 }
