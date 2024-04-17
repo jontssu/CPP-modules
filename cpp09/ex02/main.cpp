@@ -7,5 +7,8 @@ int main(int argc, char **argv) {
 	}
 	PmergeME p = PmergeME(argv);
 	p.executeVector(1);
+	p.printVec();
+	p.executeDeque(1);
+	p.printDeq();
 	return 0;
 }
