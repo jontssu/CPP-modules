@@ -91,6 +91,7 @@ void PmergeME::executeVector(int stride) {
 		pend.push_back(it + stride);
 	}
 	if (it < vec.end() && it + stride - 1 < vec.end() ){
+		std::cout << "here\n";
 		pend.push_back(it);
 	}
 
@@ -142,20 +143,35 @@ void PmergeME::executeVector(int stride) {
 
 	vec_int updated_vec;
 	int total = 0;
-	for (auto it = main.begin(); it != main.end(); it++) {
+	auto ite = main.begin();
+	for (; ite != main.end(); ite++) {
 		i = 0;
 		size = stride;
 		while (size) {
-			if (*it + i < vec.end()) {
+			if (*ite + i < vec.end()) {
 				total++;
-				updated_vec.push_back(*(*it + i));
+				updated_vec.push_back(*(*ite + i));
 			}
 			size--;
 			i++;
 		}	
-		main.pop_front();
+		// main.pop_front();
+	}
+	std::cout << "start vec: ";
+	for (auto x : vec)
+		std::cout << x << ' ';
+	std::cout << '\n';
+	std::cout << "total: " << total << '\n';
+	if (total != (int)vec.size()) {
+		ite--;
+		if (*ite + total + 1 == vec.end())
+		for (int i = 0; *ite + total + i != vec.end(); i++) {
+			std::cout << "pushing: " << *(*ite + total + i) << '\n';
+			updated_vec.push_back(*(*ite + total + i));
+		}
 	}
 	vec = updated_vec;
+	std::cout << '\n';
 }
 
 // void PmergeME::executeDeque(int stride) {
