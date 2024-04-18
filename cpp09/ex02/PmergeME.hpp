@@ -23,10 +23,13 @@ class PmergeME {
 
 		void executeVector(int stride);
 		void executeDeque(int stride);
+		void printUnsorted();
+		void sortAndPrint();
 		void printVec();
 		void printDeq();
 
 	private:
+		std::vector<int> unsorted;
 		std::vector<int> vec;
 		std::deque<int> deq;
 };
