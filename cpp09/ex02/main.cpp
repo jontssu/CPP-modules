@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
 	}
 	PmergeME p = PmergeME(argv);
 
-	// p.printUnsorted();
+	p.printUnsorted();
 	// p.sortAndPrint();
 
 	p.executeVector(1);

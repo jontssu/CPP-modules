@@ -65,19 +65,21 @@ void PmergeME::executeVector(int stride) {
 	int tmp;
 
 	while ((int)vec.size() - distance >= stride * 2) {
+		// std::cout << "pairing: " << vec[i] << " & " << vec[i + stride] << '\n';
 		if (vec[i] < vec[i + stride]) {
-			for (int x = stride; x > 0; x--) {
-				tmp = vec[i];
-				vec[i] = vec[i + stride];
-				vec[i + stride] = tmp;
-				i++;
-			}
-			i -= stride;
+			tmp = vec[i];
+			vec[i] = vec[i + stride];
+			vec[i + stride] = tmp;
 		}
 		distance += stride * 2;
 		i += stride * 2;
 	}
 
+	std::cout << "\npairing vec: ";
+	for (auto x : vec)
+		std::cout << x << ' ';
+	std::cout << '\n';
+	
 	if ((int)vec.size() >= stride * 4) {
 		executeVector(stride * 2);
 	}
@@ -85,15 +87,26 @@ void PmergeME::executeVector(int stride) {
 	list_it main;
 	list_it pend;
 
-	auto it = vec.begin();;
-	for (; it + stride < vec.end(); it+= stride * 2) {
-		main.push_back(it);
-		pend.push_back(it + stride);
+	std::cout << "\nstart vec: ";
+	for (auto x : vec)
+		std::cout << x << ' ';
+	std::cout << '\n';
+
+	auto it = vec.begin();
+	for (; it + (stride * 2) < vec.end(); it+= stride * 2) {
+		if (*it > *(it + stride)) {
+			main.push_back(it);
+			pend.push_back(it + stride);
+		// } else {
+		// 	main.push_back(it + stride);
+		// 	pend.push_back(it);
+		// }
 	}
 	if (it < vec.end() && it + stride - 1 < vec.end() ){
-		std::cout << "here\n";
+		// std::cout << "pushing pairless block\n";
 		pend.push_back(it);
 	}
+
 
 	main.push_front(pend.front());
 	pend.pop_front();
@@ -125,6 +138,15 @@ void PmergeME::executeVector(int stride) {
 	int size = pend.size();
 	int total_dist = 0;
 
+	std::cout << "main: ";
+	for (auto x : main)
+		std::cout << *x << ' ';
+	std::cout << '\n';
+	std::cout << "pend: ";
+	for (auto x : pend)
+		std::cout << *x << ' ';
+	std::cout << '\n';
+
 	for (int i = 0; size > 0; i++) {
 		set = jacobsthal_diff[i];
 		if (set > size)
@@ -134,6 +156,7 @@ void PmergeME::executeVector(int stride) {
 			*(get_it(main_it.begin(), set + total_dist - 1)),
 			*(get_it(pend.begin(), set + total_dist - 1)),
 			[] (vec_int::iterator a, vec_int::iterator b) {return *a < *b;});
+			// std::cout << "number: " << **(get_it(pend.begin(), set + total_dist - 1)) << " lowest: " << std::distance(main.begin(), lowest) << '\n';
 			main.insert(lowest, *(get_it(pend.begin(), set + total_dist - 1)));
 			set--;
 		}
@@ -141,15 +164,22 @@ void PmergeME::executeVector(int stride) {
 		total_dist += jacobsthal_diff[i];
 	}
 
+	std::cout << "main ready: ";
+	for (auto x : main)
+		std::cout << *x << ' ';
+	std::cout << '\n';
+
 	vec_int updated_vec;
 	int total = 0;
-	auto ite = main.begin();
-	for (; ite != main.end(); ite++) {
+
+	std::cout << "pushing to updated vec: ";
+	for (auto ite = main.begin(); ite != main.end(); ite++) {
 		i = 0;
 		size = stride;
 		while (size) {
 			if (*ite + i < vec.end()) {
 				total++;
+				std::cout << *(*ite + i) << ' ';
 				updated_vec.push_back(*(*ite + i));
 			}
 			size--;
@@ -157,20 +187,18 @@ void PmergeME::executeVector(int stride) {
 		}	
 		// main.pop_front();
 	}
-	std::cout << "start vec: ";
+	std::cout << '\n';
+	// std::cout << "total: " << total << '\n';
+	for (int i = 0; vec.begin() + total + i < vec.end(); i++) {
+		std::cout << "pushing extra number value: " << *(vec.begin() + total + i) << '\n';
+		updated_vec.push_back(*(vec.begin() + total + i));
+	}
+
+	vec = updated_vec;
+
+	std::cout << "end vec: ";
 	for (auto x : vec)
 		std::cout << x << ' ';
-	std::cout << '\n';
-	std::cout << "total: " << total << '\n';
-	if (total != (int)vec.size()) {
-		ite--;
-		if (*ite + total + 1 == vec.end())
-		for (int i = 0; *ite + total + i != vec.end(); i++) {
-			std::cout << "pushing: " << *(*ite + total + i) << '\n';
-			updated_vec.push_back(*(*ite + total + i));
-		}
-	}
-	vec = updated_vec;
 	std::cout << '\n';
 }
 
