@@ -65,11 +65,15 @@ void PmergeME::executeVector(int stride) {
 	int tmp;
 
 	while ((int)vec.size() - distance >= stride * 2) {
-		// std::cout << "pairing: " << vec[i] << " & " << vec[i + stride] << '\n';
 		if (vec[i] < vec[i + stride]) {
-			tmp = vec[i];
-			vec[i] = vec[i + stride];
-			vec[i + stride] = tmp;
+			for (int x = stride; x > 0; x--) {
+			// std::cout << "pairing: " << vec[i] << " & " << vec[i + stride] << '\n';
+				tmp = vec[i];
+				vec[i] = vec[i + stride];
+				vec[i + stride] = tmp;
+				i++;
+			}
+			i -= stride;
 		}
 		distance += stride * 2;
 		i += stride * 2;
@@ -94,13 +98,8 @@ void PmergeME::executeVector(int stride) {
 
 	auto it = vec.begin();
 	for (; it + (stride * 2) < vec.end(); it+= stride * 2) {
-		if (*it > *(it + stride)) {
-			main.push_back(it);
-			pend.push_back(it + stride);
-		// } else {
-		// 	main.push_back(it + stride);
-		// 	pend.push_back(it);
-		// }
+		main.push_back(it);
+		pend.push_back(it + stride);
 	}
 	if (it < vec.end() && it + stride - 1 < vec.end() ){
 		// std::cout << "pushing pairless block\n";
