@@ -8,6 +8,7 @@
 #include <sstream>
 #include <list>
 #include <algorithm>
+#include <chrono>
 
 typedef std::vector<int> vec_int;
 typedef std::list<vec_int::iterator> list_it;
@@ -28,8 +29,10 @@ class PmergeME {
 		void sortAndPrint();
 		void printVec();
 		void printDeq();
+		int	get_elements();
 
 	private:
+		int	elements;
 		std::vector<int> unsorted;
 		std::vector<int> vec;
 		std::deque<int> deq;

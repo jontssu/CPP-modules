@@ -1,11 +1,12 @@
 #include "PmergeME.hpp"
 
-PmergeME::PmergeME(char **argv) {
+PmergeME::PmergeME(char **argv) : elements(0) {
 	if (argv[2] == NULL) {
 		std::string str;
 		std::stringstream ss(argv[1]);
 		while (std::getline(ss, str, ' ')) {
 			if (!str.empty()) {
+				elements += 1;
 				unsorted.push_back(std::stoi(str));
 				vec.push_back(std::stoi(str));
 				deq.push_back(std::stoi(str));
@@ -13,6 +14,7 @@ PmergeME::PmergeME(char **argv) {
 		}
 	} else {
 		for (int i = 1; argv[i]; i++) {
+			elements += 1;
 			unsorted.push_back(std::stoi(argv[i]));
 			vec.push_back(std::stoi(argv[i]));
 			deq.push_back(std::stoi(argv[i]));
@@ -50,6 +52,10 @@ void PmergeME::printDeq() {
 		std::cout << x << ' ';
 	}
 	std::cout << '\n';
+}
+
+int PmergeME::get_elements() {
+	return elements;
 }
 
 template<typename T>
