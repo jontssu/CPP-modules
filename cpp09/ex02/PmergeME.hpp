@@ -19,6 +19,7 @@ typedef std::list<list_it2::iterator> list_it_it2;
 
 class PmergeME {
 	public:
+		PmergeME() = default;
 		PmergeME(char **argv);
 
 		void executeVector(int stride);
